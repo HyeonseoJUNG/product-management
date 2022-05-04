@@ -1,23 +1,21 @@
 package com.example.coffeeserver.entity.order;
 
-import com.example.coffeeserver.entity.customer.Email;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 public class Order {
     private final UUID orderId;
-    private final Email email;
+    private final UUID customerId;
     private final String address;
     private final List<OrderItem> orderItems;
     private OrderStatus orderStatus;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Order(UUID orderId, Email email, String address, List<OrderItem> orderItems, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Order(UUID orderId, UUID customerId, String address, List<OrderItem> orderItems, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.orderId = orderId;
-        this.email = email;
+        this.customerId = customerId;
         this.address = address;
         this.orderItems = orderItems;
         this.orderStatus = orderStatus;
@@ -29,8 +27,8 @@ public class Order {
         return orderId;
     }
 
-    public Email getEmail() {
-        return email;
+    public UUID getCustomerId() {
+        return customerId;
     }
 
     public String getAddress() {

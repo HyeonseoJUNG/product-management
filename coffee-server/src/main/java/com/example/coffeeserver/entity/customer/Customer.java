@@ -10,6 +10,7 @@ public class Customer {
     private PhoneNumber phoneNumber;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private LocalDateTime lastLoginAt;
 
     public Customer(UUID customerId, String customerName, Email email, PhoneNumber phoneNumber) {
         this.customerId = customerId;
@@ -17,7 +18,6 @@ public class Customer {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 
     public UUID getCustomerId() {

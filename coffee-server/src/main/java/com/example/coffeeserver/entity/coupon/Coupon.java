@@ -8,10 +8,10 @@ public class Coupon {
     private final UUID couponId;
     private long discountRate;
     private LocalDate expirationDate;
-    private UUID couponOwnerId;
+//    private UUID couponOwnerId;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private LocalDateTime issuedAt;
+//    private LocalDateTime issuedAt;
 
     public Coupon(UUID couponId, long discountRate, LocalDate expirationDate) {
         this.couponId = couponId;
@@ -50,9 +50,9 @@ public class Coupon {
         this.expirationDate = expirationDate;
         this.updatedAt = LocalDateTime.now();
     }
-
-    public void setCouponOwnerId(UUID ownerId) {
-        this.couponOwnerId = ownerId;
-        this.issuedAt = LocalDateTime.now();
-    }
+//
+//    public void setCouponOwnerId(UUID ownerId) {
+//        this.couponOwnerId = ownerId;
+//        this.issuedAt = LocalDateTime.now();
+//    }
 }
