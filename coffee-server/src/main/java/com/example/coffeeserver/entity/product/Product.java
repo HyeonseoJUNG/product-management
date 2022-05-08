@@ -1,5 +1,7 @@
 package com.example.coffeeserver.entity.product;
 
+import org.springframework.util.Assert;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -13,6 +15,8 @@ public class Product {
     private LocalDateTime updatedAt;
 
     public Product(UUID productId, String productName, Category category, long price, String description) {
+        verifyPrice();
+
         this.productId = productId;
         this.productName = productName;
         this.category = category;
@@ -22,6 +26,8 @@ public class Product {
     }
 
     public Product(UUID productId, String productName, Category category, long price, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        verifyPrice();
+
         this.productId = productId;
         this.productName = productName;
         this.category = category;
@@ -59,23 +65,28 @@ public class Product {
         return updatedAt;
     }
 
-    public void setProductName(String productName) {
+    public void changeProductName(String productName) {
         this.productName = productName;
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void setCategory(Category category) {
+    public void changeProductCategory(Category category) {
         this.category = category;
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void setPrice(long price) {
+    public void changePrice(long price) {
+        verifyPrice();
         this.price = price;
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void setDescription(String description) {
+    public void changeDescription(String description) {
         this.description = description;
         this.updatedAt = LocalDateTime.now();
+    }
+
+    private void verifyPrice() {
+        Assert.isTrue(price >= 0, "Price must be greater than or equal to zero.");
     }
 }
