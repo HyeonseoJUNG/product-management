@@ -12,6 +12,16 @@ public class Customer {
     private LocalDateTime updatedAt;
     private LocalDateTime lastLoginAt;
 
+    public Customer(UUID customerId, String customerName, Email email, PhoneNumber phoneNumber, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime lastLoginAt) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.lastLoginAt = lastLoginAt;
+    }
+
     public Customer(UUID customerId, String customerName, Email email, PhoneNumber phoneNumber) {
         this.customerId = customerId;
         this.customerName = customerName;
@@ -36,12 +46,24 @@ public class Customer {
         return phoneNumber;
     }
 
-    public void setCustomerName(String customerName) {
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public LocalDateTime getLastLoginAt() {
+        return lastLoginAt;
+    }
+
+    public void changeCustomerName(String customerName) {
         this.customerName = customerName;
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void setPhoneNumber(PhoneNumber phoneNumber) {
+    public void changePhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
         this.updatedAt = LocalDateTime.now();
     }
